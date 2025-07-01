@@ -35,8 +35,12 @@ jobs:
           name: Verify out directory
           command: ls -la out
       - run:
-          name: Deploy to Cloudflare Pages
-          command: npx wrangler pages deploy out --project-name=circleci-books-pages --commit-dirty=true
+          name: Create and Deploy to Cloudflare Pages
+          command: |
+            # Try to create project (will fail if it exists)
+            npx wrangler pages project create circleci-books-pages || true
+            # Deploy to the project
+            npx wrangler pages deploy out --project-name=circleci-books-pages
 
       - run:
           name: Output Wrangler logs
