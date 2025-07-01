@@ -4,9 +4,9 @@ import Link from "next/link";
 export default function Home() {
   return (
     <main className="flex flex-col items-center justify-center min-h-screen p-8">
-      <h1 className="text-4xl font-bold mb-4">CircleReads — Dev Picks</h1>
+      <h1 className="text-4xl font-bold mb-4">Welcome to CircleReads </h1>
       <p className="text-lg mb-6 text-center">
-        Discover books loved by developers and engineering leaders at CircleCI.
+        Discover books loved by developers and engineering leaders at CircleCI - Dev Picks
       </p>
       <Image
         src="/bookshelf.png"
