@@ -1,6 +1,0 @@
-// name = "circleci-books-pages"
-// compatibility_date = "2024-07-01"
-// pages_build_output_dir = "out"
-
-// [env.production]
-// compatibility_date = "2024-07-01"
