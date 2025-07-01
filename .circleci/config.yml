@@ -31,13 +31,11 @@ jobs:
       - checkout
       - attach_workspace:
           at: .
-      - run: npm ci
       - run:
           name: Deploy to Cloudflare Pages
-          command: npx wrangler pages deploy --project-name circleci-books-pages --non-interactive
+          command: npx wrangler pages deploy --project-name circleci-books-pages --branch=main
 
 workflows:
-  version: 2
   build-and-deploy:
     jobs:
       - build
