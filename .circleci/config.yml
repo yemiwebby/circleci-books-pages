@@ -34,7 +34,7 @@ jobs:
       - run: npm ci
       - run:
           name: Deploy to Cloudflare Pages
-          command: npx wrangler pages deploy --project-name circleci-books-pages
+          command: npx wrangler pages deploy out --project-name circleci-books-pages --branch=main
 
 workflows:
   version: 2
