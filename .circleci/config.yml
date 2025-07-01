@@ -34,7 +34,7 @@ jobs:
       - run: npm ci
       - run:
           name: Deploy to Cloudflare Pages
-          command: npx wrangler pages deploy out --project-name circleci-books-pages --compatibility-date 2024-07-01
+          command: npx wrangler pages deploy --project-name circleci-books-pages
 
 workflows:
   version: 2
