@@ -32,8 +32,19 @@ jobs:
       - attach_workspace:
           at: .
       - run:
+          name: Verify out directory
+          command: ls -la out
+      - run:
           name: Deploy to Cloudflare Pages
-          command: npx wrangler pages deploy out --project-name=circleci-books-pages --commit-dirty --verbose
+          command: npx wrangler pages deploy out --project-name=circleci-books-pages --commit-dirty=true
+          environment:
+            CLOUDFLARE_API_TOKEN: $CLOUDFLARE_API_TOKEN
+            CLOUDFLARE_ACCOUNT_ID: $CLOUDFLARE_ACCOUNT_ID
+
+      - run:
+          name: Output Wrangler logs
+          command: cat /home/circleci/.config/.wrangler/logs/wrangler-*.log || true
+          when: on_fail
 
 workflows:
   build-and-deploy:
